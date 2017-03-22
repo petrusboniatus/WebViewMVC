@@ -2,10 +2,7 @@ package com.awesome.business.template.model;
 
 import com.awesome.business.template.api.View;
 import com.awesome.business.template.api.ViewHandler;
-import com.awesome.business.template.controller.AbstractController;
-import com.awesome.business.template.controller.ViewApplication;
 import com.awesome.business.template.controller.ViewHandlerImpl;
-import javafx.scene.web.WebEngine;
 
 
 /**
@@ -17,15 +14,11 @@ public class Main {
 
         ViewHandler viewHandler = new ViewHandlerImpl();
         View vista = viewHandler.loadView("view/MainView.html");
+
+        vista.addObjectOnJS("enviado desde java", "ejemplo");
+
         viewHandler.show(vista);
 
-    }
-
-    public static class TestController extends AbstractController {
-
-        public TestController(WebEngine engine) {
-            super(engine);
-        }
     }
 
 
