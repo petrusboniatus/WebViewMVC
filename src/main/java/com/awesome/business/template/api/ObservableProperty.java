@@ -15,7 +15,7 @@ public class ObservableProperty<T> {
     private T value;
     private List<JSObject> listeners = new ArrayList<>();
 
-    public void addListener(JSObject callback){
+    public void addListener(JSObject callback) {
         listeners.add(callback);
     }
 

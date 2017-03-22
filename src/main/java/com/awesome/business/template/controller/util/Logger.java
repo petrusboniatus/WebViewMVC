@@ -5,15 +5,15 @@ package com.awesome.business.template.controller.util;
  */
 public class Logger {
 
-    public void log(Object obj){
+    public void log(Object obj) {
         System.out.println(obj);
     }
 
-    public void info(String str, Object... args){
+    public void info(String str, Object... args) {
         System.out.printf(str, args);
     }
 
-    public void error(String str, Object... args){
+    public void error(String str, Object... args) {
         System.err.printf(str, args);
     }
 }

@@ -26,7 +26,8 @@ public class ViewApplication extends Application {
     private static List<Thread> threadPool = new ArrayList<>();
 
     @SuppressWarnings("unchecked")
-    public static <T extends AbstractController> T startView(IControllerFactory<T> factory, ILocator viewLocator, String... args) {
+    public static <T extends AbstractController> T startView(IControllerFactory<T> factory, ILocator viewLocator,
+                                                             String... args) {
         bridge = new Data(factory, viewLocator);
         Thread thread = new Thread(() -> {
             try {
