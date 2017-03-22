@@ -1,5 +1,6 @@
-package com.awesome.business.template.model;
+package com.awesome.business.template.api;
 
+import com.awesome.business.template.controller.util.Utils;
 import javafx.application.Platform;
 import netscape.javascript.JSObject;
 
@@ -27,12 +28,7 @@ public class ObservableProperty<T> {
         value = newValue;
 
         Platform.runLater(() -> {
-            listeners.forEach(obj -> {
-                JSObject window = (JSObject) obj.eval("window");
-                window.setMember("private_arg1", oldValue);
-                window.setMember("private_arg2", newValue);
-                obj.eval("this(private_arg1, private_arg2);");
-            });
+            listeners.forEach(obj -> Utils.runCallback(obj, oldValue, newValue));
         });
 
     }
