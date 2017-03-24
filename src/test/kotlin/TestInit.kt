@@ -1,7 +1,4 @@
-import com.awesome.business.template.controller.AbstractController
-import com.awesome.business.template.controller.IControllerFactory
-import com.awesome.business.template.controller.ILocator
-import com.awesome.business.template.controller.ViewApplication
+import com.awesome.business.template.controller.*
 import org.junit.Assert
 import org.junit.Test
 
@@ -13,26 +10,12 @@ class TestInit {
 
     @Test
     fun testBasicRun() {
-        ViewApplication.startView(
-                IControllerFactory { object : AbstractController(it){} },
-                ILocator { "view/MainView.html" }
-        )
-        ViewApplication.exit()
-        System.exit(0)
-    }
+        val viewHandler = ViewHandlerImpl()
+        val vista = viewHandler.loadView("view/MainView.html")
 
-    @Test
-    fun testControllerPass() {
-        var preController: AbstractController? = null
-        val postController = ViewApplication.startView(
-                IControllerFactory {
-                    preController = object : AbstractController(it){}
-                    preController
-                },
-                ILocator { "view/MainView.html" }
-        )
-        Assert.assertEquals(preController, postController)
-        ViewApplication.exit()
-        System.exit(0)
+        vista.addObjectOnJS("enviado desde java", "ejemplo")
+
+        viewHandler.show(vista)
+        viewHandler.close()
     }
 }
