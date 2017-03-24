@@ -2,6 +2,8 @@ package com.awesome.business.template.controller;
 
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Worker;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -34,7 +36,6 @@ public class FXAplication extends Application {
                 semaphore.release();
             }
         });
-
         primaryStage.show();
         System.out.println("show");
         semaphoreShow.release();
@@ -92,6 +93,14 @@ public class FXAplication extends Application {
         Scene scene = new Scene(box);
 
         stage.setScene(scene);
+
+        scene.getWindow().widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
+            view.setPrefWidth((Double) newSceneWidth);
+        });
+        scene.getWindow().heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> {
+            view.setPrefHeight((Double) newSceneHeight);
+        });
+
         return view;
     }
 

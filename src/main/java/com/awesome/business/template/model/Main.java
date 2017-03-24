@@ -11,15 +11,11 @@ import com.awesome.business.template.controller.ViewHandlerImpl;
 public class Main {
 
     public static void main(String... args) {
-
         ViewHandler viewHandler = new ViewHandlerImpl();
         View vista = viewHandler.loadView("view/MainView.html");
 
         vista.addObjectOnJS("enviado desde java", "ejemplo");
 
         viewHandler.show(vista);
-
     }
-
-
 }
