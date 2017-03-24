@@ -23,7 +23,7 @@ Learn how to do it in less time, that takes to read this shitty questions:
 ```
 
 Now use it on javaScript, you can add listerners if the Object have the property ```Observable```.
-The function ```main()``` will be executed in every time ```viewHandler.show(vista);```
+The function ```main()``` will be executed every time ```viewHandler.show(vista);```
  is called. 
 
 ```html
@@ -42,4 +42,4 @@ The function ```main()``` will be executed in every time ```viewHandler.show(vis
 
 ```
 
-And that is all wat you need.
+And that is all you need.
