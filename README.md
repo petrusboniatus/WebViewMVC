@@ -22,7 +22,7 @@ Learn how to do it in less time, that takes to read this shitty questions:
 
 ```
 
-Now use it on javaScript, you can add listerners if the Object have the property Observable.
+Now use it on javaScript, you can add listerners if the Object have the property ```Observable```.
 The function ```main()``` will be executed in every time ```viewHandler.show(vista);```
  is called. 
 
@@ -33,6 +33,7 @@ The function ```main()``` will be executed in every time ```viewHandler.show(vis
 <script>
     function main(){
         document.getElementById("hola").innerHTML = ejemplo;
+        
         ejemplo.addListener((oldValue, newValue)=>{
             document.getElementById("hola").innerHTML = newValue
         });
@@ -40,3 +41,5 @@ The function ```main()``` will be executed in every time ```viewHandler.show(vis
 </script>
 
 ```
+
+And that is all wat you need.
