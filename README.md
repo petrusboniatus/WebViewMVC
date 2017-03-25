@@ -14,7 +14,7 @@ Learn how to do it in less time, that takes to read this shitty questions:
     ViewHandler viewHandler = new ViewHandlerImpl();
     View vista = viewHandler.loadView("view/MainView.html");
     
-    Obervable<String> example = "example string";
+    ObervableProperty<String> example = "example string";
 
     vista.addObjectOnJS(example, "example");
 
