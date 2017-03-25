@@ -22,7 +22,7 @@ Learn how to do it in less time, that takes to read this shitty questions:
 
 ```
 
-Now use it on javaScript, you can add listerners if the Object have the property ```Observable```.
+Now use it on javaScript, you can add listerners if the Object have the property ```ObservableProperty```.
 The function ```main()``` will be executed every time ```viewHandler.show(vista);```
  is called. 
 
