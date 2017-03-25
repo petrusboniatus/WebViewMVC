@@ -34,7 +34,7 @@ The function ```main()``` will be executed every time ```viewHandler.show(vista)
     function main(){
         document.getElementById("hola").innerHTML = ejemplo;
         
-        ejemplo.addListener((oldValue, newValue)=>{
+        ejemplo.addListener(function (oldValue, newValue){
             document.getElementById("hola").innerHTML = newValue
         });
     }
