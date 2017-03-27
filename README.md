@@ -14,7 +14,7 @@ Learn how to do it in less time, that takes to read this shitty questions:
     ViewHandler viewHandler = new ViewHandlerImpl();
     View vista = viewHandler.loadView("view/MainView.html");
     
-    Obervable<String> example = "example string";
+    ObervableProperty<String> example = "example string";
 
     vista.addObjectOnJS(example, "example");
 
@@ -22,8 +22,8 @@ Learn how to do it in less time, that takes to read this shitty questions:
 
 ```
 
-Now use it on javaScript, you can add listerners if the Object have the property ```Observable```.
-The function ```main()``` will be executed in every time ```viewHandler.show(vista);```
+Now use it on javaScript, you can add listerners if the Object have the property ```ObservableProperty```.
+The function ```main()``` will be executed every time ```viewHandler.show(vista);```
  is called. 
 
 ```html
@@ -34,7 +34,7 @@ The function ```main()``` will be executed in every time ```viewHandler.show(vis
     function main(){
         document.getElementById("hola").innerHTML = ejemplo;
         
-        ejemplo.addListener((oldValue, newValue)=>{
+        ejemplo.addListener(function (oldValue, newValue){
             document.getElementById("hola").innerHTML = newValue
         });
     }
@@ -42,4 +42,4 @@ The function ```main()``` will be executed in every time ```viewHandler.show(vis
 
 ```
 
-And that is all wat you need.
+And that is all you need.
