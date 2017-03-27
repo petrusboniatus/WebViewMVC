@@ -12,20 +12,20 @@ public class ViewHandlerImpl implements ViewHandler {
 
 
     public ViewHandlerImpl() {
-        FXAplication.iniciar();
+        FXApplication.start();
     }
 
     @Override
     public View loadView(String htmlUrl) {
 
-        WebView web = FXAplication.getView();
-        return new ViewImpl(htmlUrl, web, FXAplication.box);
+        WebView web = FXApplication.getView();
+        return new ViewImpl(htmlUrl, web, FXApplication.box);
     }
 
     @Override
     public void show(View v) {
 
-        FXAplication.loadView(FXAplication.getView(), v.getHtmlUrl());
+        FXApplication.loadView(FXApplication.getView(), v.getHtmlUrl());
         Platform.runLater(() -> {
             try {
                 v.runOnJS("main()");

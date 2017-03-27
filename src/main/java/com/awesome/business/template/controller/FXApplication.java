@@ -16,12 +16,11 @@ import java.util.concurrent.Semaphore;
 /**
  * Created by pedro on 22/03/17.
  */
-public class FXAplication extends Application {
+public class FXApplication extends Application {
 
-
-    static Semaphore semaphore = new Semaphore(0);
-    static Semaphore semaphoreShow = new Semaphore(0);
-    static WebView view;
+    private static Semaphore semaphore = new Semaphore(0);
+    private static Semaphore semaphoreShow = new Semaphore(0);
+    private static WebView view;
     static VBox box;
 
     @Override
@@ -32,16 +31,14 @@ public class FXAplication extends Application {
         view.getEngine().getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
 
             if (newValue == Worker.State.SUCCEEDED) {
-                System.out.println("Release");
                 semaphore.release();
             }
         });
         primaryStage.show();
-        System.out.println("show");
         semaphoreShow.release();
     }
 
-    static void iniciar() {
+    public static void start() {
 
         Thread thread = new Thread(() -> {
             try {
@@ -75,7 +72,6 @@ public class FXAplication extends Application {
             }
             view.getEngine().load(url.toExternalForm());
 
-            System.out.println("Test");
         });
 
         try {
@@ -103,9 +99,4 @@ public class FXAplication extends Application {
 
         return view;
     }
-
-    public static void exit() {
-        Platform.exit();
-    }
-
 }

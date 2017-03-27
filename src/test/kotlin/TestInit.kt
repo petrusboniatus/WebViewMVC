@@ -9,13 +9,20 @@ import org.junit.Test
 class TestInit {
 
     @Test
-    fun testBasicRun() {
+    fun testIO() {
         val viewHandler = ViewHandlerImpl()
-        val vista = viewHandler.loadView("view/MainView.html")
+        val vista = viewHandler.loadView("view/TestView.html")
+        val box = Array(1) { "old" }
 
-        vista.addObjectOnJS("enviado desde java", "ejemplo")
+        vista.addObjectOnJS("output", box)
 
         viewHandler.show(vista)
+
+        vista.runOnJS("output[0] = 'test'")
+
+        Thread.sleep(100)
+        Assert.assertEquals("test", box[0])
+
         viewHandler.close()
     }
 }

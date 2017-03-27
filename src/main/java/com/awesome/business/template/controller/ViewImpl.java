@@ -28,12 +28,18 @@ public class ViewImpl implements View {
     }
 
     @Override
-    public Object runOnJS(String script) {
-        return webView.getEngine().executeScript(script);
+    public void runOnJS(String script) {
+        Platform.runLater(() -> {
+            try {
+                webView.getEngine().executeScript(script);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     @Override
-    public void addObjectOnJS(Object obj, String name) {
+    public void addObjectOnJS(String name, Object obj) {
 
         Platform.runLater(() -> {
             webView.getEngine().getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {

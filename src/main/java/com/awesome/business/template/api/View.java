@@ -9,9 +9,9 @@ public interface View {
 
     String getHtmlUrl();
 
-    Object runOnJS(String script);
+    void runOnJS(String script);
 
-    void addObjectOnJS(Object obj, String name);
+    void addObjectOnJS(String variable, Object value);
 
     VBox getFrameBox();
 }
