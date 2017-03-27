@@ -14,9 +14,9 @@ Learn how to do it in less time, that takes to read this shitty questions:
     ViewHandler viewHandler = new ViewHandlerImpl();
     View vista = viewHandler.loadView("view/MainView.html");
     
-    ObervableProperty<String> example = "example string";
+    Obervable<String> example = new Observable("example string");
 
-    vista.addObjectOnJS(example, "example");
+    vista.addObjectOnJS("example", example);
 
     viewHandler.show(vista);
 
@@ -28,11 +28,10 @@ The function ```main()``` will be executed every time ```viewHandler.show(vista)
 
 ```html
 <p id="hola">Hello World</p>
-<script src="js/Scripts.js"></script>
 
 <script>
     function main(){
-        document.getElementById("hola").innerHTML = ejemplo;
+        document.getElementById("hola").innerHTML = ejemplo.get();
         
         ejemplo.addListener(function (oldValue, newValue){
             document.getElementById("hola").innerHTML = newValue
