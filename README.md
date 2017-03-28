@@ -8,37 +8,37 @@ A template for making java applications with html user interface running on WebV
 
 Learn how to do it in less time, that takes to read this shitty questions:
 
-**Just create a view with your html code and add your hava objets:**
+**Just create a view with your html code and add your java objects:**
 ```java
 
     ViewHandler viewHandler = new ViewHandlerImpl();
-    View vista = viewHandler.loadView("view/MainView.html");
+    View view = viewHandler.loadView("view/MainView.html");
     
-    Obervable<String> example = new Observable("example string");
+    Obervable<String> example = new Observable<>("example string");
 
-    vista.addObjectOnJS("example", example);
+    view.addObjectOnJS("example", example);
 
-    viewHandler.show(vista);
+    viewHandler.show(view);
 
 ```
 
-Now use it on javaScript, you can add listerners if the Object have the property ```ObservableProperty```.
-The function ```main()``` will be executed every time ```viewHandler.show(vista);```
+Now use it on JavaScript, you can add listeners if the Object have the property ```Observable```.
+The function ```main(){...}``` will be executed every time ```viewHandler.show(view);```
  is called. 
 
 ```html
-<p id="hola">Hello World</p>
+<p id="someID">Hello World</p>
 
 <script>
     function main(){
-        document.getElementById("hola").innerHTML = ejemplo.get();
+        document.getElementById("someID").innerHTML = example.get();
         
-        ejemplo.addListener(function (oldValue, newValue){
-            document.getElementById("hola").innerHTML = newValue
+        example.addListener(function (oldValue, newValue){
+            document.getElementById("someID").innerHTML = newValue
         });
     }
 </script>
 
 ```
 
-And that is all you need.
+And that's all you need.
