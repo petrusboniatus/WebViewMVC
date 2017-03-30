@@ -31,6 +31,7 @@ public class FXApplication extends Application {
         view.getEngine().getLoadWorker().stateProperty().addListener((observable, oldValue, newValue) -> {
 
             if (newValue == Worker.State.SUCCEEDED) {
+                primaryStage.setTitle(view.getEngine().getDocument().getElementsByTagName("title").item(0).getTextContent());
                 semaphore.release();
             }
         });

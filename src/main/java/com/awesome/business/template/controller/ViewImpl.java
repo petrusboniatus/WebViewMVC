@@ -14,12 +14,12 @@ public class ViewImpl implements View {
 
     private String url;
     private WebView webView;
-    private VBox caja;
+    private VBox box;
 
-    public ViewImpl(String url, WebView webView, VBox caja) {
+    public ViewImpl(String url, WebView webView, VBox box) {
         this.url = url;
         this.webView = webView;
-        this.caja = caja;
+        this.box = box;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class ViewImpl implements View {
 
     @Override
     public VBox getFrameBox() {
-        return caja;
+        return box;
     }
 
 }

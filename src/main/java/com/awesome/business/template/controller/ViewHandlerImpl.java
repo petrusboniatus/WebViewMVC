@@ -16,7 +16,7 @@ public class ViewHandlerImpl implements ViewHandler {
     }
 
     @Override
-    public View loadView(String htmlUrl) {
+    public View loadView(String htmlUrl){
 
         WebView web = FXApplication.getView();
         return new ViewImpl(htmlUrl, web, FXApplication.box);
